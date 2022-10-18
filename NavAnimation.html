@@ -31,6 +31,7 @@
         margin: 0;
         background-color: var(--background);
         font-family: var(--font);
+        line-height: 1;
         color: #fff;
         height: 100vh;
       }
@@ -923,6 +924,9 @@
     </div> -->
 
     <style>
+      :root{
+        --width: 30px;
+      }
       .demo_ham_icon {
         height: 20vh;
         background-color: #181818;
@@ -932,22 +936,22 @@
         gap: 50px;
       }
       .ham_de_1 .ham_line_1 {
-        width: 50px;
+        width: var(--width);
       }
       .ham_de_1 .ham_line_2 {
-        width: 50px;
+        width: var(--width);
       }
       .ham_de_1 .ham_line_3 {
-        width: 50px;
+        width: var(--width);
       }
       .ham_de_2 .ham_line_1 {
-        width: 50px;
+        width: var(--width);
       }
       .ham_de_2 .ham_line_2 {
-        width: 50px;
+        width: var(--width);
       }
       .ham_de_2 .ham_line_3 {
-        width: 50px;
+        width: var(--width);
       }
       .ham_line_1, .ham_line_2, .ham_line_3 {
         display: block;
@@ -957,20 +961,21 @@
         transition: all 0.2s ease;
       }
       #ham_check:checked ~ .ham_de_1 .ham_line_1{
-        transform: rotate(46deg) translateX(10px) translateY(-3px);
+        transform: rotate(46deg) translate(0px, 0px);
         transform-origin: top left;
       }
       #ham_check:checked ~ .ham_de_1 .ham_line_3{
-        transform: rotate(-48deg) translateX(-4px) translateY(6px);
+        transform: rotate(-48deg) translate(0px, -6px);
       }
       #ham_check:checked ~ .ham_de_1 .ham_line_2{
         opacity: 0;
-        transform: translateX(-50px);
+        /* transform: translateX(-50px); */
       }
 
       #ham_check{
         display: none;
       }
+
       .ham_de_2 .ham_line_1{
         transform: scaleX(0.5);
         transform-origin: left;
@@ -981,15 +986,38 @@
       }
 
       #ham_check:checked ~ .ham_de_2 .ham_line_1{
-        transform: rotate(46deg) translateX(10px) translateY(-3px);
+        transform: rotate(46deg) translate(0px, 0px);
         transform-origin: top left;
       }
       #ham_check:checked ~ .ham_de_2 .ham_line_3{
-        transform: rotate(-48deg) translateX(4px) translateY(-12px);
+        transform: rotate(-48deg) translate(5px, -18px);
       }
       #ham_check:checked ~ .ham_de_2 .ham_line_2{
         opacity: 0;
         transform: translateX(-50px);
+      }
+
+      .ham_de_3 .ham_line_1 {
+        width: var(--width);
+      }
+      .ham_de_3 .ham_line_2 {
+        width: var(--width);
+        transform: scaleX(0.5);
+        transform-origin: right;
+      }
+      .ham_de_3 .ham_line_3 {
+        width: var(--width);
+      }
+
+      #ham_check:checked ~ .ham_de_3 .ham_line_1{
+        transform: rotate(46deg) translate(0px, 0px);
+        transform-origin: top left;
+      }
+      #ham_check:checked ~ .ham_de_3 .ham_line_3{
+        transform: rotate(-48deg) translate(5px, -6px);
+      }
+      #ham_check:checked ~ .ham_de_3 .ham_line_2{
+        opacity: 0;
       }
 
     </style>
@@ -1005,6 +1033,14 @@
       </div>
 
         <div class="ham_de_2">
+          <label for="ham_check">
+            <span class="ham_line_1"></span>
+            <span class="ham_line_2"></span>
+            <span class="ham_line_3"></span>
+          </label>
+        </div>
+
+        <div class="ham_de_3">
           <label for="ham_check">
             <span class="ham_line_1"></span>
             <span class="ham_line_2"></span>
