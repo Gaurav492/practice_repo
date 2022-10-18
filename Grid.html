@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1.1fr 1fr;
+        grid-template-rows: 1fr 1.6fr 0.4fr;
+        gap: 0px 0px;
+        grid-auto-flow: row;
+      }
+
+      .main_container {
+        grid-area: 1 / 2 / 4 / 4;
+        background-color: lightcoral;
+      }
+
+      .img {
+        grid-area: 1 / 2 / 3 / 4;
+      }
+
+      .title {
+        grid-area: 3 / 2 / 4 / 4;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="main_container"></div>
+      <div class="img"></div>
+      <div class="title"></div>
+    </div>
+  </body>
+</html>

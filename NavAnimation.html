@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Document</title>
+    <style>
+      * {
+        /* outline: 1px solid red; */
+        box-sizing: border-box;
+      }
+
+      html {
+        overflow-x: hidden;
+      }
+
+      body {
+        padding: 0;
+        margin: 0;
+        background-color: var(--background);
+        font-family: var(--font);
+        color: #fff;
+        height: 100vh;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      hr {
+        text-align: center;
+        margin: 0;
+        padding: 0;
+      }
+
+      ol,
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      h2 {
+        margin: 20px 0;
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+      a {
+        text-decoration: none;
+      }
+
+      nav {
+        position: relative;
+        /* margin-bottom: 20px; */
+      }
+
+      .nav_links_container {
+        z-index: 10;
+      }
+
+      .logo {
+        font-weight: bold;
+      }
+
+      .container {
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 0 15px;
+      }
+      .nav_two nav {
+        padding: 30px 0;
+        background-color: #251b37;
+      }
+      .nav_two .nav_container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .nav_two .logo {
+        text-decoration: none;
+        color: #ffecef;
+        font-size: 30px;
+      }
+      .nav_two .nav_links {
+        text-transform: uppercase;
+        gap: 20px;
+        display: flex;
+      }
+      .nav_two .nav_links a {
+        padding: 10px;
+        color: #ffcaca;
+      }
+      .nav_two .nav_links a {
+        position: relative;
+      }
+
+      .nav_two .nav_links a::after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: "";
+        width: 0;
+        height: 100%;
+        border-bottom: 1px solid #ffcaca;
+        transition: all 0.2s ease;
+      }
+      .nav_two .nav_links a:hover::after {
+        width: 100%;
+      }
+      /* >>> NAV ONE <<< */
+      .nav_one nav {
+        padding: 30px 0;
+        background-color: #000000;
+      }
+      .nav_one .nav_container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .nav_one .logo {
+        text-decoration: none;
+        color: #dc5f00;
+        font-size: 30px;
+      }
+      .nav_one .nav_links {
+        text-transform: uppercase;
+        gap: 20px;
+        display: flex;
+      }
+      .nav_one .nav_links a {
+        padding: 10px;
+        color: #fff;
+      }
+      .nav_one .nav_links a {
+        position: relative;
+      }
+      /*  */
+      .nav_one .nav_links a::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: "";
+        width: 100%;
+        height: 0%;
+        border-left: 1px solid #fff;
+        border-right: 1px solid #fff;
+        transition: all 0.2s ease;
+      }
+      .nav_one .nav_links a::after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: "";
+        width: 0;
+        height: 100%;
+        border-top: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+        transition: all 0.2s ease 0.1s;
+      }
+      .nav_one .nav_links a:hover::before {
+        height: 103%;
+      }
+      .nav_one .nav_links a:hover::after {
+        width: 102%;
+      }
+
+      /***********************/
+      /* HAMBURGER MENU ANIMATION */
+      /***********************/
+
+      .hamburger-menu {
+        /* position: fixed;
+        top: 1rem;
+        right: 2rem; */
+        z-index: 10;
+        cursor: pointer;
+      }
+
+      .menu-bar1,
+      .menu-bar2,
+      .menu-bar3 {
+        width: 3.5rem;
+        height: 0.2rem;
+        background-color: #fff;
+        margin: 0.8rem 0;
+        transition: 0.4s;
+      }
+
+      .menu-bar2 {
+        width: 2rem;
+        margin-left: auto;
+      }
+
+      /* ROTATE FIRST BAR */
+      .active .menu-bar1 {
+        /* transform: rotate(-45deg) translate(-7px, 8px); */
+        transform: rotate(-45deg) translate(-0.7rem, 0.8rem);
+      }
+
+      /* FADE OUT SECOND BAR */
+      .active .menu-bar2 {
+        opacity: 0;
+      }
+
+      /* ROTATE LAST BAR */
+      .active .menu-bar3 {
+        /* transform: rotate(45deg) translate(-6px, -8px); */
+        transform: rotate(45deg) translate(-0.6rem, -0.8rem);
+      }
+
+      /* >>> NAV THREE <<< */
+      .nav_three nav {
+        padding: 30px 0;
+        background-color: #d8d9cf;
+      }
+      .nav_three .nav_container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .nav_three .logo {
+        text-decoration: none;
+        color: #ff8787;
+        font-size: 30px;
+      }
+      .nav_three .nav_links {
+        text-transform: uppercase;
+        gap: 20px;
+        display: flex;
+      }
+      .nav_three .nav_links a {
+        padding: 10px;
+        color: #7d6e83;
+        position: relative;
+        z-index: 4;
+        /* transition: all 0.2s ease ; */
+      }
+
+      .nav_three .nav_links a::after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color: #251b37;
+        z-index: -1;
+        transform: rotateY(90deg);
+        transition: all 0.2s ease;
+        /* transform-origin: left; */
+        transform-origin: center;
+      }
+      .nav_three .nav_links a:hover::after {
+        transform: rotateY(0deg);
+      }
+
+      /* >>> NAV FOUR <<< */
+      .nav_four nav {
+        padding: 30px 0;
+        background-color: #181818;
+      }
+      .nav_four .nav_container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .nav_four .logo {
+        text-decoration: none;
+        color: #8758ff;
+        font-size: 30px;
+      }
+      .nav_four .nav_links {
+        text-transform: uppercase;
+        gap: 20px;
+        display: flex;
+      }
+      .nav_four .nav_links a {
+        padding: 10px;
+        color: #fff;
+        position: relative;
+        z-index: 4;
+        /* transition: all 0.2s ease ; */
+
+        transition: all 0.2s ease;
+      }
+
+      .nav_links_container {
+        transition: all 0.2s ease;
+      }
+
+      .nav_one label,
+      .nav_two label,
+      .nav_three label,
+      .nav_four label,
+      .nav_five label,
+      .nav_six label {
+        display: none;
+      }
+
+      .nav_four .nav_links a::after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: "";
+        width: 0%;
+        height: 100%;
+        z-index: -1;
+        transition: all 0.2s ease;
+        /* transform-origin: left; */
+        background-color: #8758ff;
+        transition: all 0.3s ease-out;
+      }
+      .nav_four .nav_links a:hover::after {
+        width: 100%;
+      }
+
+      .navbar_container {
+        display: none;
+      }
+      .nav_three #check_box {
+        display: none;
+      }
+      .nav_three .fa-solid {
+        color: #000000;
+        cursor: pointer;
+        font-size: 30px;
+      }
+
+      #check_box1 {
+        display: none;
+      }
+
+      .nav_four .fa-solid {
+        font-size: 30px;
+      }
+
+      /* >>> NAV FIVE <<< */
+      .nav_five nav {
+        padding: 30px 0;
+        background-color: #425f57;
+      }
+      .nav_five .nav_container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .nav_five .logo {
+        text-decoration: none;
+        color: #cfff8d;
+        font-size: 30px;
+      }
+      .nav_five .nav_links {
+        text-transform: uppercase;
+        gap: 20px;
+        display: flex;
+      }
+
+      .nav_links_container {
+        transition: all 0.2s ease;
+      }
+      .hamburger-menu {
+        display: none;
+      }
+      .nav_five .nav_links a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        color: #fff;
+        position: relative;
+        z-index: 10;
+        /* transition: all 0.2s ease ; */
+        transition: all 0.2s ease;
+      }
+      /* .nav_five .nav_links a:hover {
+        color: #251b37;
+      } */
+      /* .nav_five .nav_links a::before {
+        background-color: #749f82;
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: "";
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      } */
+      .nav_five .nav_links a::before {
+        position: absolute;
+        /* right: 0;
+        left: 0;
+        top: -35%; */
+        margin: 0 auto;
+        content: "";
+        width: 70px;
+        height: 70px;
+        z-index: -1;
+        transition: all 0.2s ease 0.05s;
+        border: 2px solid #7d6e83;
+        border-radius: 50%;
+        transform: scale(0);
+      }
+      .nav_five .nav_links a::after {
+        position: absolute;
+        /* right: 0;
+        left: 0;
+        top: -5px; */
+        margin: 0 auto;
+        content: "";
+        width: 50px;
+        height: 50px;
+        z-index: -1;
+        transition: all 0.2s ease;
+        background-color: #7d6e83;
+        border-radius: 50%;
+        transform: scale(0);
+      }
+      .nav_five .nav_links a:hover::before,
+      .nav_five .nav_links a:hover::after {
+        transform: scale(1);
+      }
+
+      .navbar_container {
+        display: none;
+      }
+      .nav_five #check_box {
+        display: none;
+      }
+      .nav_five .fa-solid {
+        color: #000000;
+        cursor: pointer;
+        font-size: 30px;
+      }
+
+      #check_box2 {
+        display: none;
+      }
+
+      .nav_five .fa-solid {
+        color: #749f82;
+        font-size: 30px;
+      }
+
+      .flex {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .box {
+        height: 200px;
+        width: 200px;
+        background-color: #251b37;
+        transition: height 0.4s ease, opacity 0.1s ease 0.3s;
+        margin-bottom: 10px;
+      }
+      .box1 {
+        height: 200px;
+        width: 200px;
+        background-color: #251b37;
+        transition: all 0.2s ease;
+        margin-bottom: 10px;
+      }
+
+      /* .check_demo:checked ~ .box {
+        height: 0;
+        opacity: 0;
+      } */
+      .check_demo:not(:checked) ~ .box {
+        height: auto;
+        opacity: 1;
+      }
+
+      .slide_demo label {
+        display: block;
+        color: #000000;
+      }
+
+      /* >>> NAV_SIX <<< */
+      .nav_six nav {
+        padding: 30px 0;
+        background-color: #748da6;
+      }
+      .nav_six .nav_container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .nav_six .logo {
+        text-decoration: none;
+        color: #d3cedf;
+        font-size: 30px;
+      }
+      .nav_six .nav_links {
+        text-transform: uppercase;
+        gap: 27px;
+        display: flex;
+      }
+
+      .nav_links_container {
+        transition: all 0.2s ease;
+      }
+
+      .hamburger-menu {
+        display: none;
+      }
+      .nav_six .nav_links a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 0;
+        color: #fff;
+        position: relative;
+        z-index: 10;
+        /* transition: all 0.2s ease ; */
+        transition: all 0.2s ease;
+      }
+
+      .nav_six .nav_links a:hover {
+        color: #f2d7d9;
+      }
+
+      .nav_six .nav_links a::before {
+        transition: all 0.2s ease;
+        content: "[";
+        /* padding-right: 4px; */
+        opacity: 0;
+        transform: translateX(10px);
+      }
+      .nav_six .nav_links a::after {
+        transition: all 0.2s ease;
+        transform: translateX(-10px);
+        /* padding-left: 4px; */
+        content: "]";
+        opacity: 0;
+      }
+      .nav_six .nav_links a:hover::before,
+      .nav_six .nav_links a:hover::after {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      /* SIMPLE ANIMATION */
+      /* .nav_six .nav_links a::after {
+        content: "";
+        width: 15px;
+        height: 4px;
+        background-color: #f2d7d9;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        transition: all 0.2s ease;
+        transform: translateX(200px);
+        opacity: 0;
+      }
+      .nav_six .nav_links a:hover::after {
+        transform: translateX(0);
+        opacity: 1;
+      } */
+
+      .navbar_container {
+        display: none;
+      }
+      .nav_six #check_box {
+        display: none;
+      }
+      .nav_fsix.fa-solid {
+        color: #000000;
+        cursor: pointer;
+        font-size: 30px;
+      }
+
+      #check_box3 {
+        display: none;
+      }
+
+      .nav_six .fa-solid {
+        color: #f2d7d9;
+        font-size: 30px;
+      }
+      /* >>> MEDIA QUERY <<< */
+      @media (max-width: 991px) {
+        .nav_links_container {
+          /* display: none; */
+          opacity: 0;
+          position: absolute;
+          top: 100%;
+          right: 0%;
+        }
+        .hamburger-menu {
+          display: block;
+        }
+        .nav_three .nav_links_container {
+          right: 0;
+        }
+
+        .nav_four .nav_links_container {
+          opacity: 1;
+          background-color: #8758ff;
+          height: auto;
+          flex-direction: column;
+          left: 0%;
+          width: 100%;
+          /* >>> ANIMATED FROM LEFT <<< */
+          /* transform: scaleX(0); */
+          /* transform-origin: left; */
+          /* >>> ANIMATED FROM TOP <<< */
+          transform: scaleY(0);
+          transform-origin: top;
+        }
+
+        .nav_four .nav_links {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .nav_four .nav_links li a {
+          transition: all 0.2s ease 0.3s;
+          /* transition: all 0.2s ease 0.3s; */
+          opacity: 0;
+        }
+
+        .nav_four .nav_links li a:nth-child(1) {
+          transition: all 0.2s ease 0.1s;
+        }
+        .nav_four .nav_links li a:nth-child(2) {
+          transition: all 0.2s ease 0.5s;
+        }
+        .nav_four .nav_links li a:nth-child(3) {
+          transition: all 0.2s ease 0.7s;
+        }
+
+        .nav_four
+          input[type="checkbox"]:checked
+          ~ .nav_links_container
+          .nav_links
+          li
+          a {
+          opacity: 1;
+        }
+
+        .nav_five .nav_links a::after {
+          background-color: transparent;
+        }
+        .nav_four
+          input[type="checkbox"]:checked
+          ~ .nav_links_container
+          .nav_links {
+          opacity: 1;
+        }
+        .nav_four input[type="checkbox"]:checked ~ .nav_links_container {
+          transform: scaleY(1);
+        }
+
+        .nav_one label,
+        .nav_two label,
+        .nav_three label,
+        .nav_four label,
+        .nav_five label,
+        .nav_six label {
+          display: block;
+        }
+        .nav_three input[type="checkbox"]:checked ~ .nav_links_container {
+          /* display: flex; */
+          opacity: 1;
+          transform: scale(1);
+        }
+        .nav_three .nav_links_container {
+          z-index: 10;
+          background-color: #7d6e83;
+          transform: scale(0);
+          transform-origin: top right;
+          border-radius: 15px;
+        }
+        .nav_three .nav_links_container .nav_links {
+          flex-direction: column;
+          padding: 30px;
+        }
+        .nav_three .nav_links a {
+          color: #fff;
+        }
+        .nav_three .nav_links a::after {
+          background-color: transparent;
+          transform: none;
+        }
+
+        /* NAV FIVE */
+        .nav_five .nav_links_container {
+          opacity: 1;
+          background-color: #749f82;
+          height: auto;
+          flex-direction: column;
+          left: 0%;
+          width: 100%;
+          /* >>> ANIMATED FROM LEFT <<< */
+          transform: scaleX(0);
+          transform-origin: left;
+          /* >>> ANIMATED FROM TOP <<< */
+          /* transform: scaleY(0);
+          transform-origin: top; */
+        }
+
+        .nav_five .nav_links {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .nav_five .nav_links li a {
+          transition: all 0.2s ease 0.3s;
+          /* transition: all 0.2s ease 0.3s; */
+          opacity: 0;
+        }
+
+        .nav_five .nav_links li a:nth-child(1) {
+          transition: all 0.2s ease 0.1s;
+        }
+        .nav_five .nav_links li a:nth-child(2) {
+          transition: all 0.2s ease 0.5s;
+        }
+        .nav_five .nav_links li a:nth-child(3) {
+          transition: all 0.2s ease 0.7s;
+        }
+
+        .nav_five
+          input[type="checkbox"]:checked
+          ~ .nav_links_container
+          .nav_links
+          li
+          a {
+          opacity: 1;
+        }
+
+        .nav_five
+          input[type="checkbox"]:checked
+          ~ .nav_links_container
+          .nav_links {
+          opacity: 1;
+        }
+        .nav_five input[type="checkbox"]:checked ~ .nav_links_container {
+          transform: scaleY(1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV_TWO -->
+    <div class="nav_two">
+      <nav>
+        <div class="container">
+          <div class="nav_container">
+            <div class="logo_container">
+              <a class="logo" href="javascript:void(0)">SKYLINE</a>
+            </div>
+            <div class="nav_links_container">
+              <ul class="nav_links">
+                <li class="nav_link"><a href="">Home</a></li>
+                <li class="nav_link"><a href="">About</a></li>
+                <li class="nav_link"><a href="">gallery</a></li>
+                <li class="nav_link"><a href="">Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <!-- NAV_ONE -->
+    <div class="nav_one">
+      <nav>
+        <div class="container">
+          <div class="nav_container">
+            <div class="logo_container">
+              <a class="logo" href="javascript:void(0)">SKYLINE</a>
+            </div>
+            <div class="nav_links_container">
+              <ul class="nav_links">
+                <li class="nav_link"><a href="">Home</a></li>
+                <li class="nav_link"><a href="">About</a></li>
+                <li class="nav_link"><a href="">gallery</a></li>
+                <li class="nav_link"><a href="">Contact Us</a></li>
+              </ul>
+            </div>
+            <!-- HAMBURGER MENU -->
+            <div class="hamburger-menu" id="hamburger-menu">
+              <div class="menu-bar1"></div>
+              <div class="menu-bar2"></div>
+              <div class="menu-bar3"></div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <!-- NAV_THREE -->
+    <div class="nav_three">
+      <nav>
+        <div class="container">
+          <div class="nav_container">
+            <div class="logo_container">
+              <a class="logo" href="javascript:void(0)">SKYLINE</a>
+            </div>
+            <input type="checkbox" id="check_box" />
+            <label for="check_box">
+              <i class="fa-solid fa-bars"></i>
+            </label>
+            <div class="nav_links_container">
+              <ul class="nav_links">
+                <li class="nav_link"><a href="">Home</a></li>
+                <li class="nav_link"><a href="">About</a></li>
+                <li class="nav_link"><a href="">gallery</a></li>
+                <li class="nav_link"><a href="">Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <!-- NAV_FOUR -->
+    <div class="nav_four">
+      <nav>
+        <div class="container">
+          <div class="nav_container">
+            <div class="logo_container">
+              <a class="logo" href="javascript:void(0)">SKYLINE</a>
+            </div>
+            <input type="checkbox" id="check_box1" />
+            <label for="check_box1">
+              <i class="fa-solid fa-bars"></i>
+            </label>
+            <div class="nav_links_container">
+              <ul class="nav_links">
+                <li class="nav_link"><a href="">Home</a></li>
+                <li class="nav_link"><a href="">About</a></li>
+                <li class="nav_link"><a href="">gallery</a></li>
+                <li class="nav_link"><a href="">Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <!-- NAV_FIVE -->
+    <div class="nav_five">
+      <nav>
+        <div class="container">
+          <div class="nav_container">
+            <div class="logo_container">
+              <a class="logo" href="javascript:void(0)">SKYLINE</a>
+            </div>
+            <input type="checkbox" id="check_box2" />
+            <label for="check_box2">
+              <i class="fa-solid fa-bars"></i>
+            </label>
+            <div class="nav_links_container">
+              <ul class="nav_links">
+                <li class="nav_link"><a href="">Home</a></li>
+                <li class="nav_link"><a href="">About</a></li>
+                <li class="nav_link"><a href="">gallery</a></li>
+                <li class="nav_link"><a href="">Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <!-- NAV_SIX -->
+    <div class="nav_six">
+      <nav>
+        <div class="container">
+          <div class="nav_container">
+            <div class="logo_container">
+              <a class="logo" href="javascript:void(0)">SKYLINE</a>
+            </div>
+            <input type="checkbox" id="check_box3" />
+            <label for="check_box3">
+              <i class="fa-solid fa-bars"></i>
+            </label>
+            <div class="nav_links_container">
+              <ul class="nav_links">
+                <li class="nav_link"><a href="">Home</a></li>
+                <li class="nav_link"><a href="">About</a></li>
+                <li class="nav_link"><a href="">gallery</a></li>
+                <li class="nav_link"><a href="">Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <!-- <div class="slide_demo">
+      <div class="container">
+        <input type="checkbox" id="check_demo" class="check_demo" />
+        <label for="check_demo">
+          <i class="fa-solid fa-bars"></i>
+        </label>
+        <div class="box flex"><p>Lorem ipsum dolor sit amet.</p></div>
+        <div class="box1"></div>
+        <div class="box1"></div>
+        <div class="box1"></div>
+        <div class="box1"></div>
+        <div class="box1"></div>
+        <div class="box1"></div>
+        <div class="box1"></div>
+      </div>
+    </div> -->
+
+    <style>
+      .demo_ham_icon {
+        height: 20vh;
+        background-color: #181818;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+      }
+      .ham_de_1 .ham_line_1 {
+        width: 50px;
+      }
+      .ham_de_1 .ham_line_2 {
+        width: 50px;
+      }
+      .ham_de_1 .ham_line_3 {
+        width: 50px;
+      }
+      .ham_de_2 .ham_line_1 {
+        width: 50px;
+      }
+      .ham_de_2 .ham_line_2 {
+        width: 50px;
+      }
+      .ham_de_2 .ham_line_3 {
+        width: 50px;
+      }
+      .ham_line_1, .ham_line_2, .ham_line_3 {
+        display: block;
+        margin: 5px 0;
+        height: 2px;
+        background-color: #fff;
+        transition: all 0.2s ease;
+      }
+      #ham_check:checked ~ .ham_de_1 .ham_line_1{
+        transform: rotate(46deg) translateX(10px) translateY(-3px);
+        transform-origin: top left;
+      }
+      #ham_check:checked ~ .ham_de_1 .ham_line_3{
+        transform: rotate(-48deg) translateX(-4px) translateY(6px);
+      }
+      #ham_check:checked ~ .ham_de_1 .ham_line_2{
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+
+      #ham_check{
+        display: none;
+      }
+      .ham_de_2 .ham_line_1{
+        transform: scaleX(0.5);
+        transform-origin: left;
+      }
+      .ham_de_2 .ham_line_3{
+        transform: scaleX(0.5);
+        transform-origin: right;
+      }
+
+      #ham_check:checked ~ .ham_de_2 .ham_line_1{
+        transform: rotate(46deg) translateX(10px) translateY(-3px);
+        transform-origin: top left;
+      }
+      #ham_check:checked ~ .ham_de_2 .ham_line_3{
+        transform: rotate(-48deg) translateX(4px) translateY(-12px);
+      }
+      #ham_check:checked ~ .ham_de_2 .ham_line_2{
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+
+    </style>
+
+    <div class="demo_ham_icon ">
+      <input type="checkbox" id="ham_check">
+      <div class="ham_de_1">
+        <label for="ham_check">
+          <span class="ham_line_1"></span>
+          <span class="ham_line_2"></span>
+          <span class="ham_line_3"></span>
+        </label>
+      </div>
+
+        <div class="ham_de_2">
+          <label for="ham_check">
+            <span class="ham_line_1"></span>
+            <span class="ham_line_2"></span>
+            <span class="ham_line_3"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+    <script>
+      let box = document.querySelector(".box");
+      window.addEventListener("scroll", function () {
+        console.log(box.offsetHeight);
+      });
+      box.addEventListener("change", function () {});
+    </script>
+    <script>
+      const hamburgerMenu = document.querySelector("#hamburger-menu");
+      const overlay = document.querySelector("#overlay");
+      const nav1 = document.querySelector("#nav-1");
+      const nav2 = document.querySelector("#nav-2");
+      const nav3 = document.querySelector("#nav-3");
+      const nav4 = document.querySelector("#nav-4");
+      const nav5 = document.querySelector("#nav-5");
+      const navItems = [nav1, nav2, nav3, nav4, nav5];
+
+      // Control Navigation Animation
+      function navAnimation(val1, val2) {
+        navItems.forEach((nav, i) => {
+          nav.classList.replace(
+            `slide-${val1}-${i + 1}`,
+            `slide-${val2}-${i + 1}`
+          );
+        });
+      }
+
+      function toggleNav() {
+        // Toggle: Hamburger Open/Close
+        hamburgerMenu.classList.toggle("active");
+
+        //   Toggle: Menu Active
+        overlay.classList.toggle("overlay-active");
+
+        if (overlay.classList.contains("overlay-active")) {
+          // Animate In - Overlay
+          overlay.classList.replace(
+            "overlay-slide-left",
+            "overlay-slide-right"
+          );
+
+          // Animate In - Nav Items
+          navAnimation("out", "in");
+        } else {
+          // Animate Out - Overlay
+          overlay.classList.replace(
+            "overlay-slide-right",
+            "overlay-slide-left"
+          );
+
+          // Animate Out - Nav Items
+          navAnimation("in", "out");
+        }
+      }
+
+      // Events Listeners
+      hamburgerMenu.addEventListener("click", toggleNav);
+      navItems.forEach((nav) => {
+        nav.addEventListener("click", toggleNav);
+      });
+    </script>
+  </body>
+</html>
