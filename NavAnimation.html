@@ -172,7 +172,7 @@
         height: 100%;
         border-top: 1px solid #fff;
         border-bottom: 1px solid #fff;
-        transition: all 0.2s ease 0.1s;
+        transition: all 0.2s ease 0.2s;
       }
       .nav_one .nav_links a:hover::before {
         height: 103%;
@@ -297,7 +297,6 @@
         position: relative;
         z-index: 4;
         /* transition: all 0.2s ease ; */
-
         transition: all 0.2s ease;
       }
 
@@ -320,15 +319,16 @@
         left: 0;
         content: "";
         width: 0%;
-        height: 100%;
+        height: 0%;
         z-index: -1;
-        transition: all 0.2s ease;
+        /* transition: all 0.2s ease; */
         /* transform-origin: left; */
         background-color: #8758ff;
-        transition: all 0.3s ease-out;
+        transition: all 0.2s ease-out, height 0.2s ease 0.2s;
       }
       .nav_four .nav_links a:hover::after {
         width: 100%;
+        height: 100%;
       }
 
       .navbar_container {
@@ -539,7 +539,7 @@
 
       .nav_six .nav_links a::before {
         transition: all 0.2s ease;
-        content: "[";
+        content: "(";
         /* padding-right: 4px; */
         opacity: 0;
         transform: translateX(10px);
@@ -548,7 +548,7 @@
         transition: all 0.2s ease;
         transform: translateX(-10px);
         /* padding-left: 4px; */
-        content: "]";
+        content: ")";
         opacity: 0;
       }
       .nav_six .nav_links a:hover::before,
@@ -928,8 +928,8 @@
         --width: 30px;
       }
       .demo_ham_icon {
-        height: 20vh;
-        background-color: #181818;
+        height: 10vh;
+        background-color: #354259;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -957,24 +957,34 @@
         display: block;
         margin: 5px 0;
         height: 2px;
-        background-color: #fff;
+        background-color: #ECE5C7;
         transition: all 0.2s ease;
       }
       #ham_check:checked ~ .ham_de_1 .ham_line_1{
-        transform: rotate(46deg) translate(0px, 0px);
+        transform: rotate(49deg) translate(0px, -6px);
         transform-origin: top left;
       }
       #ham_check:checked ~ .ham_de_1 .ham_line_3{
-        transform: rotate(-48deg) translate(0px, -6px);
+        transform: rotate(-46deg) translate(5px, -6px);
       }
       #ham_check:checked ~ .ham_de_1 .ham_line_2{
         opacity: 0;
         /* transform: translateX(-50px); */
       }
 
-      #ham_check{
+      #ham_check, #ham_check1, #ham_check2, #ham_check3{
         display: none;
       }
+
+      .ham_label
+      {
+        display: block;
+        padding: 10px;
+      }
+
+      /* .demo_ham_icon label{
+        padding: 40px;
+      } */
 
       .ham_de_2 .ham_line_1{
         transform: scaleX(0.5);
@@ -985,14 +995,14 @@
         transform-origin: right;
       }
 
-      #ham_check:checked ~ .ham_de_2 .ham_line_1{
-        transform: rotate(46deg) translate(0px, 0px);
+      #ham_check1:checked ~ .ham_de_2 .ham_line_1{
+        transform: rotate(49deg) translate(0px, -6px);
         transform-origin: top left;
       }
-      #ham_check:checked ~ .ham_de_2 .ham_line_3{
-        transform: rotate(-48deg) translate(5px, -18px);
+      #ham_check1:checked ~ .ham_de_2 .ham_line_3{
+        transform: rotate(-51deg) translate(11px, -17px);
       }
-      #ham_check:checked ~ .ham_de_2 .ham_line_2{
+      #ham_check1:checked ~ .ham_de_2 .ham_line_2{
         opacity: 0;
         transform: translateX(-50px);
       }
@@ -1009,23 +1019,47 @@
         width: var(--width);
       }
 
-      #ham_check:checked ~ .ham_de_3 .ham_line_1{
-        transform: rotate(46deg) translate(0px, 0px);
+      #ham_check2:checked ~ .ham_de_3 .ham_line_1{
+        transform: rotate(46deg) translate(0px, -5px);
         transform-origin: top left;
       }
-      #ham_check:checked ~ .ham_de_3 .ham_line_3{
+      #ham_check2:checked ~ .ham_de_3 .ham_line_3{
         transform: rotate(-48deg) translate(5px, -6px);
       }
-      #ham_check:checked ~ .ham_de_3 .ham_line_2{
+      #ham_check2:checked ~ .ham_de_3 .ham_line_2{
         opacity: 0;
       }
 
+      /* >>> NAV_FOUR <<< */
+      .ham_line_1, .ham_line_2, .ham_line_3 {
+        display: block;
+        margin: 5px 0;
+        width: var(--width);
+        height: 2px;
+        background-color: #ECE5C7;
+        transition: all 0.2s ease;
+      }
+      #ham_check3:checked ~ .ham_de_4 .ham_line_1{
+        width: 20px;
+        transform: rotate(-46deg) translate(0px, -10px);
+        transform-origin: bottom right;
+      }
+      #ham_check3:checked ~ .ham_de_4 .ham_line_3{
+        width: 20px;
+        transform: rotate(46deg)  translate(-4px, 3px);
+      }
+      #ham_check3:checked ~ .ham_de_4 .ham_line_2{
+        width: 20px;
+      }
     </style>
 
     <div class="demo_ham_icon ">
       <input type="checkbox" id="ham_check">
+      <input type="checkbox" id="ham_check1">
+      <input type="checkbox" id="ham_check2">
+      <input type="checkbox" id="ham_check3">
       <div class="ham_de_1">
-        <label for="ham_check">
+        <label class="ham_label" for="ham_check">
           <span class="ham_line_1"></span>
           <span class="ham_line_2"></span>
           <span class="ham_line_3"></span>
@@ -1033,7 +1067,7 @@
       </div>
 
         <div class="ham_de_2">
-          <label for="ham_check">
+          <label class="ham_label" for="ham_check1">
             <span class="ham_line_1"></span>
             <span class="ham_line_2"></span>
             <span class="ham_line_3"></span>
@@ -1041,7 +1075,15 @@
         </div>
 
         <div class="ham_de_3">
-          <label for="ham_check">
+          <label class="ham_label" for="ham_check2">
+            <span class="ham_line_1"></span>
+            <span class="ham_line_2"></span>
+            <span class="ham_line_3"></span>
+          </label>
+        </div>
+
+        <div class="ham_de_4">
+          <label class="ham_label" for="ham_check3">
             <span class="ham_line_1"></span>
             <span class="ham_line_2"></span>
             <span class="ham_line_3"></span>
