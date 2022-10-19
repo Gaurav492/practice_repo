@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      :root {
+        --url_1: url(https://images.unsplash.com/photo-1663790913610-fbae9cf3d2d5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80);
+        --url_2: url(https://images.unsplash.com/photo-1665236879081-3d68b7c0e19a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80);
+        --url_3: url(https://images.unsplash.com/photo-1665945863556-6b913e33b39c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80);
+        --url_4: url(https://images.unsplash.com/photo-1665741835553-b7adcf294229?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80);
+        --url_5: url(https://images.unsplash.com/photo-1665436752144-4e9236563aff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80);
+        --url_6: url(https://images.unsplash.com/photo-1665423608657-e20cb8de5932?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=705&q=80);
+        --url_7: url(https://images.unsplash.com/photo-1656744638191-946f34448940?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80);
+        --url_8: url(https://images.unsplash.com/photo-1665037379030-2ff9bf3b76a1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80);
+      }
+      /* >>> COMMON RESET <<< */
+      * {
+        /* border: 1px solid red; */
+        box-sizing: border-box;
+      }
+
+      body {
+        padding: 0;
+        margin: 0;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      hr {
+        text-align: center;
+        margin: 0;
+        padding: 0;
+      }
+
+      ol,
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      h2 {
+        margin: 20px 0;
+      }
+      main {
+      }
+
+      /* >>> UTILITY CLASSES <<< */
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        height: 100vh;
+        padding: 0 15px;
+      }
+      .container_auto {
+        max-width: 1400px;
+        margin: 0 auto;
+        height: auto;
+        padding: 0 15px;
+      }
+
+      /* >>> MAIN STYLING <<< */
+      .first_grid {
+        background-color: #251b37;
+      }
+      .grid {
+        padding: 50px 0;
+        height: 100vh;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 300px);
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+        pointer-events: none;
+      }
+      .grid_child {
+        background: #ffe6f7;
+        border-radius: 0.5rem;
+        aspect-ratio: 1/1;
+        transition: all 0.2s ease;
+        pointer-events: auto;
+        /* box-shadow: 5px 5px 1px #ffe6f769; */
+        overflow: hidden;
+        position: relative;
+        border: 2px solid #ffe6f7a4;
+      }
+
+      .grid_child img {
+        height: fit-content;
+        width: fit-content;
+      }
+
+      .grid_child:hover {
+        /* box-shadow: 2px px 1px #ffe6f769; */
+        transform: scale(1.2);
+        z-index: 2;
+      }
+      .grid:hover .grid_child:not(:hover) {
+        opacity: 0.3;
+      }
+
+      .grid_child:nth-child(1) {
+        background: var(--url_1);
+        background-position: center;
+        background-size: cover;
+      }
+      .grid_child:nth-child(2) {
+        background: var(--url_2);
+        background-position: center;
+        background-size: cover;
+      }
+      .grid_child:nth-child(3) {
+        background: var(--url_3);
+        background-position: center;
+        background-size: cover;
+      }
+      .grid_child:nth-child(4) {
+        background: var(--url_4);
+        background-position: top;
+        background-size: cover;
+      }
+      .grid_child:nth-child(5) {
+        background: var(--url_5);
+        background-position: center;
+        background-size: cover;
+      }
+      .grid_child:nth-child(6) {
+        background: var(--url_6);
+        background-position: center;
+        background-size: cover;
+      }
+      .grid_child:nth-child(7) {
+        background: var(--url_7);
+        background-position: center;
+        background-size: cover;
+      }
+      .grid_child:nth-child(8) {
+        background: var(--url_8);
+        background-position: center;
+        background-size: cover;
+      }
+      
+      /* >>> SECOND GRID <<< */
+      .seco_grid {
+        background-color: #06283D;
+      }
+      .grid_1{
+        border-radius: 50px;
+        padding: 50px 0;
+        height: 100vh;
+        display: grid;
+        gap: 5px;
+        grid-template-areas: 
+          "first second second"
+          "first forth  fifth"
+          "third forth  sixth"
+        ;
+        transition: all 0.2s ease;
+        /* pointer-events: none; */
+      }
+      .grid_1_child{
+        border-radius: 10px;
+        transition: all 0.2s ease;
+        filter: grayscale(1);
+        position: relative;
+        /* border: 2px solid #ffe6f7a4; */
+      }
+       .grid_1:hover .grid_1_child:not(:hover){
+        opacity: 0.3;
+        filter: blur(2px);
+      }
+      .grid_1_child:hover{
+        transition: all 0.2s ease;
+        filter: grayscale(0);
+        transform: scale(1.01);
+        z-index: 4;
+        box-shadow: 0 0 25px #3e799ea1;
+      }
+      .grid_1_child span{
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+      .grid_1_child:nth-child(1){
+        background: var(--url_1);
+        background-position: center;
+        background-size: 100%;
+        grid-area: first;
+      }
+      .grid_1_child:nth-child(2) {
+        background: var(--url_7);
+        background-position: center;
+        background-size: cover;
+        grid-area: second;
+      }
+      .grid_1_child:nth-child(3) {
+        background: var(--url_3);
+        background-position: center;
+        background-size: cover;
+        grid-area: third;
+      }
+      .grid_1_child:nth-child(4) {
+        background: var(--url_4);
+        background-position: top;
+        background-size: cover;
+        grid-area: forth;
+      }
+      .grid_1_child:nth-child(5) {
+        background: var(--url_5);
+        background-position: center;
+        background-size: cover;
+        grid-area: fifth;
+      }
+      .grid_1_child:nth-child(6) {
+        background: var(--url_6);
+        background-position: top;
+        background-size: cover;
+        grid-area: sixth;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="first_grid">
+        <div class="container">
+          <ul class="grid">
+            <li class="grid_child"></li>
+            <li class="grid_child"></li>
+            <li class="grid_child"></li>
+            <li class="grid_child"></li>
+            <li class="grid_child"></li>
+            <li class="grid_child"></li>
+            <li class="grid_child"></li>
+            <li class="grid_child"></li>
+          </ul>
+        </div>
+      </div>
+      <div class="seco_grid">
+        <div class="container_auto">
+          <ul class="grid_1">
+            <li class="grid_1_child"><span></span></li>
+            <li class="grid_1_child"></li>
+            <li class="grid_1_child"></li>
+            <li class="grid_1_child"></li>
+            <li class="grid_1_child"></li>
+            <li class="grid_1_child"></li>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
