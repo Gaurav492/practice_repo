@@ -57,7 +57,7 @@
       .container {
         max-width: 1400px;
         margin: 0 auto;
-        height: 100vh;
+        height: auto;
         padding: 0 15px;
       }
       .container_auto {
@@ -76,7 +76,8 @@
         height: 100vh;
         display: grid;
         grid-template-columns: repeat(auto-fit, 300px);
-        gap: 20px;
+        column-gap: 20px;
+        row-gap: 0px;
         justify-content: center;
         align-items: center;
         pointer-events: none;
@@ -150,27 +151,28 @@
       
       /* >>> SECOND GRID <<< */
       .seco_grid {
-        background-color: #06283D;
+        background-color: #000000;
       }
       .grid_1{
-        border-radius: 50px;
+        border-radius: 5px;
         padding: 50px 0;
         height: 100vh;
         display: grid;
-        gap: 5px;
+        gap: 20px;
         grid-template-areas: 
           "first second second"
           "first forth  fifth"
           "third forth  sixth"
         ;
         transition: all 0.2s ease;
-        /* pointer-events: none; */
+        pointer-events: none;
       }
       .grid_1_child{
-        border-radius: 10px;
-        transition: all 0.2s ease;
+        border-radius: 5px;
+        transition: all 0.4s ease;
         filter: grayscale(1);
         position: relative;
+        pointer-events: auto;
         /* border: 2px solid #ffe6f7a4; */
       }
        .grid_1:hover .grid_1_child:not(:hover){
@@ -180,14 +182,27 @@
       .grid_1_child:hover{
         transition: all 0.2s ease;
         filter: grayscale(0);
-        transform: scale(1.01);
+        transform: scale(1.1);
         z-index: 4;
-        box-shadow: 0 0 25px #3e799ea1;
+        box-shadow: 0 0 25px #0000006c;
       }
-      .grid_1_child span{
+      .grid_1_child a{
         display: block;
         width: 100%;
         height: 100%;
+      }
+      .grid_1_child:nth-child(1):hover,
+      .grid_1_child:nth-child(2):hover,
+      .grid_1_child:nth-child(3):hover, 
+      .grid_1_child:nth-child(4):hover, 
+      .grid_1_child:nth-child(5):hover, 
+      .grid_1_child:nth-child(6):hover, 
+      .grid_1_child:nth-child(7):hover, 
+      .grid_1_child:nth-child(8):hover {
+        background-size: 106%;
+        transition: box-shadow 0.6s ease,
+                    transform 0.5s ease,
+                    background-size 0.6s ease 0.1s;
       }
       .grid_1_child:nth-child(1){
         background: var(--url_1);
@@ -195,34 +210,35 @@
         background-size: 100%;
         grid-area: first;
       }
+      
       .grid_1_child:nth-child(2) {
         background: var(--url_7);
-        background-position: center;
-        background-size: cover;
+        background-position: 50% 48%;
+        background-size: 100%;
         grid-area: second;
       }
       .grid_1_child:nth-child(3) {
         background: var(--url_3);
         background-position: center;
-        background-size: cover;
+        background-size: 100%;
         grid-area: third;
       }
       .grid_1_child:nth-child(4) {
         background: var(--url_4);
-        background-position: top;
-        background-size: cover;
+        background-position: 50% 39%;
+        background-size: 100%;
         grid-area: forth;
       }
       .grid_1_child:nth-child(5) {
         background: var(--url_5);
         background-position: center;
-        background-size: cover;
+        background-size: 100%;
         grid-area: fifth;
       }
       .grid_1_child:nth-child(6) {
         background: var(--url_6);
-        background-position: top;
-        background-size: cover;
+        background-position: 50% 50%;
+        background-size: 100%;
         grid-area: sixth;
       }
     </style>
@@ -246,12 +262,24 @@
       <div class="seco_grid">
         <div class="container_auto">
           <ul class="grid_1">
-            <li class="grid_1_child"><span></span></li>
-            <li class="grid_1_child"></li>
-            <li class="grid_1_child"></li>
-            <li class="grid_1_child"></li>
-            <li class="grid_1_child"></li>
-            <li class="grid_1_child"></li>
+            <li class="grid_1_child">
+              <a href="javascript:void(0)"></a>
+            </li>
+            <li class="grid_1_child">
+              <a href="javascript:void(0)"></a>
+            </li>
+            <li class="grid_1_child">
+              <a href="javascript:void(0)"></a>
+            </li>
+            <li class="grid_1_child">
+              <a href="javascript:void(0)"></a>
+            </li>
+            <li class="grid_1_child">
+              <a href="javascript:void(0)"></a>
+            </li>
+            <li class="grid_1_child">
+              <a href="javascript:void(0)"></a>
+            </li>
         </div>
       </div>
     </main>
